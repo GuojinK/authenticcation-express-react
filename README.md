@@ -1,12 +1,5 @@
 # authenticcation-express-react
 
-# Project Name
-
-Since I can't directly access external URLs, including GitHub repositories, I can suggest a general template for a README file that explains how to start a typical NodeJS project. You can customize it to fit your specific project details:
-
-```markdown
-# Project Name
-
 ## Introduction
 This project is built using NodeJS, ExpressJS, and ReactJS. It includes basic authentication features, such as login, registration, and Google OAuth2 integration.
 
