@@ -1,15 +1,16 @@
 const responseHandler = (req,res,next)=>{
-    res.success = function (data,message,statusCode=200){
+    res.success = function (msg,data,statusCode=200){
         res.status(statusCode).json({
+            msg:msg,
             data:data,
-            message:message,
             statusCode: statusCode
         })
     }
 
-    res.fail = function (message,statusCode){
+    res.fail = function (msg,statusCode){
         res.status(statusCode).json({
-            message:message,
+            msg:msg,
+            statusCode:statusCode
         })
     }
     next()

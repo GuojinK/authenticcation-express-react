@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { googleLogin, profile } from './api/UserAPI';
 
 function App() {
+
+  const google = ()=>{
+      googleLogin()
+  }
+  
+  const getProfile = ()=>{
+    profile()
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={google}>Google</button>
+      <button onClick={getProfile}>Profile</button>
     </div>
   );
 }

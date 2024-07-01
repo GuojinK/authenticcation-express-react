@@ -11,6 +11,23 @@ exports.createUser= async(data)=>{
     })
 }
 
+exports.createOAuthUser = async(data)=>{
+    const {email,username,oauthProvider} = data
+    const user =  await prisma.user.upsert({
+        where:{email:email},
+        update:{},
+        create:{
+            username: username,
+            oauth2Provider: oauthProvider,
+            email: email
+        },
+        select:{
+            id:true
+        }
+    })
+    return user
+}
+
 exports.findUserByEmail = async(email)=>{
     const user = await prisma.user.findUnique({
         where:{ email }
@@ -18,10 +35,13 @@ exports.findUserByEmail = async(email)=>{
     return user
 }
 
-
 exports.findUserById = async(id)=>{
     const user = await prisma.user.findUnique({
-        where:{ id }
+        where:{ id },
+        select:{
+            email:true,
+            username:true
+        }
     })
     return user
 }
