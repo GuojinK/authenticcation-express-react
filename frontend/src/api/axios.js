@@ -23,8 +23,7 @@ instance.interceptors.response.use(response=>{
                 break
             case 401:
                 // TODO UnAuthroised 
-                console.log(err.response.data);
-                break
+                return false
             case 403:
                 // TODO Forbbien 
                 console.log("No authorities");

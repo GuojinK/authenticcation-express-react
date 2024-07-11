@@ -1,20 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import { googleLogin, profile } from './api/UserAPI';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import { useAuth } from './hook/useAuth';
 
 function App() {
-
-  const google = ()=>{
-      googleLogin()
-  }
-  
-  const getProfile = ()=>{
-    profile()
-  }
+  const {isLoggedIn} = useAuth()
   return (
     <div>
-      <button onClick={google}>Google</button>
-      <button onClick={getProfile}>Profile</button>
+      {isLoggedIn? <div>User logged in <Profile/></div>: <Home/>}
     </div>
   );
 }
